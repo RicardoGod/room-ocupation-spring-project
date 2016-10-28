@@ -40,7 +40,7 @@ public class DatabaseConfiguration {
 		
 		Properties jpaProterties = new Properties();
 		jpaProterties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
-		jpaProterties.put("hibernate.hbm2ddl.auto", "create");
+		jpaProterties.put("hibernate.hbm2ddl.auto", "update");
 		entityManagerFactoryBean.setJpaProperties(jpaProterties);
 		return entityManagerFactoryBean;
 	}
