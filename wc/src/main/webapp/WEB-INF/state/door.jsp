@@ -6,11 +6,13 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
-<html>
+<html >
+
 <head>
+<meta http-equiv="Refresh" Content="2">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 ${favicon}
-<title>Estado da Porta</title>
+<title>Door State</title>
 </head>
 <body>
 	<section>
