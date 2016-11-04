@@ -1,5 +1,5 @@
 package corp.adentis.wc.model.enumerations;
 
-public enum LightStates {
+public enum LightStates{
 	ON,OFF
 }
