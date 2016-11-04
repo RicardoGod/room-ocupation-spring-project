@@ -47,18 +47,42 @@
 	
 		<div class="container">
 		
-			<div class="jumbotron text-center">
+			<div >
 			
-			<h1>${message}</h1>
-			
-			<p>${estimated}</p>
-			<c:if test="${not empty estimated}"> 
-				<div class="progress-bar-info">
-		 			<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-		    			<span class="sr-only">70% Complete</span>
-		  			</div>
-				</div> <!-- progress -->
-			</c:if>
+			<section>
+				<table class="table table-hover table-condensed table-striped table-bordered text-center">
+				
+					<thead>
+						<tr>
+							<td><h3>Tempo Entrada</h3></td>
+							<td><h3>Tempo Saída</h3></td>
+							<td><h3>Tempo Decorrido</h3></td>
+						</tr>
+					</thead>
+					
+					<tbody>
+						<c:forEach items="${eventos}" var="evento">
+							<tr>
+								<td>${evento.entry_time}</td>
+								<td>${evento.exit_time}</td>
+								<td>${evento.elapsed_time}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+					
+					<tfoot>
+						<tr>
+							<c:set var="size" value="${eventos.size()}"/>
+							<td colspan="3" class="text-center"><h4>Média de tempo registado:${eventos[size-1].average_time}</h4></td>
+						</tr>
+						<tr>	
+							<td colspan="3" class="text-center"><h4>Eventos registados: ${eventos.size()}</h4></td>
+						</tr>
+						
+					</tfoot>
+				</table>
+				
+			</section>
 			
 			</div> <!-- jumbotron -->
 		

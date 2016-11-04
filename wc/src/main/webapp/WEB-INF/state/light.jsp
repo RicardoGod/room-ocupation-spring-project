@@ -2,7 +2,7 @@
 
 <html>
 <head>
-<meta http-equiv="Refresh" Content="2">
+<meta http-equiv="Refresh" Content="5">
 <meta http-equiv="Content-Type" content="text/html; UTF-8">
 <title>Light State</title>
 
