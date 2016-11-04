@@ -1,6 +1,7 @@
 package corp.adentis.wc.model.entities;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -10,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import corp.adentis.wc.model.enumerations.LightStates;
 
@@ -22,11 +23,10 @@ public class Light {
 	private Long id;
 	
 	@NotNull
-	@NotEmpty
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss.SSS")
 	private Date date;
 	
 	@NotNull
-	@NotEmpty
 	@Enumerated(EnumType.STRING)
 	private LightStates state;
 
@@ -81,5 +81,7 @@ public class Light {
 			return false;
 		return true;
 	}
+
+	
 	
 }

@@ -1,6 +1,8 @@
 package corp.adentis.wc.model.entities;
 
-import java.sql.Date;
+
+
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -10,28 +12,33 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
+import org.springframework.format.annotation.DateTimeFormat;
 import corp.adentis.wc.model.enumerations.DoorStates;
 
 @Entity
-public class Door {
+public class Door implements Comparable<Door>{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	@NotNull
-	@NotEmpty
-	private Date date;
-	
-	@NotNull
-	@NotEmpty
 	@Enumerated(EnumType.STRING)
 	private DoorStates state;
 	
+	@NotNull
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss.SSS")
+	private Date date;
 	
 	
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -67,15 +74,7 @@ public class Door {
 			return false;
 		return true;
 	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
+	
 	public DoorStates getState() {
 		return state;
 	}
@@ -84,6 +83,10 @@ public class Door {
 		this.state = state;
 	}
 
-	
+	@Override
+	public int compareTo(Door o) {
+		return Long.compare(this.getId(), o.getId());
+	}
+
 	
 }

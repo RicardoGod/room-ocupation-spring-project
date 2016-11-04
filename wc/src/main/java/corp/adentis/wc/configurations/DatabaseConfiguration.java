@@ -5,6 +5,7 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
+import org.hibernate.SessionFactory;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,6 +31,7 @@ public class DatabaseConfiguration {
 		return dataSource;
 	}
 	
+	
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws Exception {
 		LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
@@ -42,6 +44,7 @@ public class DatabaseConfiguration {
 		jpaProterties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
 		jpaProterties.put("hibernate.hbm2ddl.auto", "update");
 		entityManagerFactoryBean.setJpaProperties(jpaProterties);
+
 		return entityManagerFactoryBean;
 	}
 	
@@ -51,5 +54,8 @@ public class DatabaseConfiguration {
 		transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
 		return transactionManager;
 	}
+	
+	
+
 	
 }
