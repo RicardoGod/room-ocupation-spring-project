@@ -47,7 +47,11 @@
 	
 		<div class="container">
 		
-			<div >
+			<div class="jumbotron text-center">
+				
+				<h2> Registos de Eventos da Porta</h2>
+				
+			</div>
 			
 			<section>
 				<table class="table table-hover table-condensed table-striped table-bordered text-center">
@@ -63,9 +67,9 @@
 					<tbody>
 						<c:forEach items="${eventos}" var="evento">
 							<tr>
-								<td>${evento.entry_time}</td>
-								<td>${evento.exit_time}</td>
-								<td>${evento.elapsed_time}</td>
+								<td><fmt:formatDate type="both" pattern="'Dia:' yyyy-MM-dd  ' &nbsp&nbsp&nbsp&nbsp  Horas: 'HH:mm:ss" value="${evento.entry_time}"/></td>
+								<td><fmt:formatDate type="both" pattern="'Dia:' yyyy-MM-dd  ' &nbsp&nbsp&nbsp&nbsp  Horas: 'HH:mm:ss" value="${evento.exit_time}"/></td>
+								<td>${evento.elapsed_time} segundos</td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -73,7 +77,7 @@
 					<tfoot>
 						<tr>
 							<c:set var="size" value="${eventos.size()}"/>
-							<td colspan="3" class="text-center"><h4>Média de tempo registado:${eventos[size-1].average_time}</h4></td>
+							<td colspan="3" class="text-center"><h4>Média de tempo registado: ${eventos[size-1].average_time} segundos</h4></td>
 						</tr>
 						<tr>	
 							<td colspan="3" class="text-center"><h4>Eventos registados: ${eventos.size()}</h4></td>
@@ -84,7 +88,7 @@
 				
 			</section>
 			
-			</div> <!-- jumbotron -->
+			
 		
 		</div> <!-- container -->
 	</div>

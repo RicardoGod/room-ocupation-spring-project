@@ -44,7 +44,7 @@ public class DoorController {
 				case CLOSE: 
 					model.addAttribute("favicon","faviconred"); 
 					model.addAttribute("message","A Porta está fechada! Tente mais tarde...");
-					model.addAttribute("estimated","Prevê-se que esteja livre às "+current_door.getDate().getHours()+":"+current_door.getDate().getMinutes()+":"+current_door.getDate().getSeconds() + " mais o tempo médio.");
+					model.addAttribute("estimated","A última pessoa fechou a porta às "+current_door.getDate().getHours()+"h"+current_door.getDate().getMinutes()+"min "+current_door.getDate().getSeconds()+"s");
 					break;
 				default: break;
 			}
