@@ -18,7 +18,6 @@ public class Application implements WebApplicationInitializer{
 		
 		appServlet.setLoadOnStartup(1);
 		appServlet.addMapping("/");
-		
 	}
 
 }
